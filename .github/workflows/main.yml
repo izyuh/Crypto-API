@@ -18,4 +18,4 @@ jobs:
           API_KEY: ${{ secrets.CRYPTO_API_KEY }}
 
       - name: check to see if key is saved
-        run: echo "API_KEY ={{ secrets.CRYPTO_API_KEY}}"
+        run: echo "API_KEY =${{ secrets.CRYPTO_API_KEY}}"
