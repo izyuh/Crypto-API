@@ -1,4 +1,4 @@
-require('dotevn').config();
+require('dotenv').config();
 
 const list = document.getElementById("coinList");
 const button = document.getElementById("button");
