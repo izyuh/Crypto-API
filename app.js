@@ -4,6 +4,8 @@ const list = document.getElementById("coinList");
 const button = document.getElementById("button");
 const API_KEY = process.env.API_KEY;
 
+console.log(API_KEY);
+
 async function getData() {
   try {
     const request = await fetch(
