@@ -1,5 +1,6 @@
 const list = document.getElementById("coinList");
 const button = document.getElementById("button");
+const API_KEY = process.env.MY_API_KEY;
 
 async function getData() {
   try {
