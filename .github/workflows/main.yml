@@ -16,9 +16,5 @@ jobs:
       - name: Use API Key in Environment Variable
         env:
           API_KEY: ${{ secrets.CRYPTO_API_KEY }}
+        run: echo "api key has been set"
 
-      - name: Check to see if key is saved
-        run: |
-          echo "API_KEY is set"
-          # The API_KEY environment variable is set, but it will not print the actual value to avoid security risks.
-          echo "The API Key has been set in the environment variable (without displaying it)."
