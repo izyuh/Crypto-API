@@ -16,4 +16,3 @@ jobs:
       - name: Use API Key in Environment Variable
         env:
           API_KEY: ${{ secrets.CRYPTO_API_KEY }}
-        run: echo "The API key is set but not printed for security."
