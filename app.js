@@ -1,4 +1,4 @@
-requestAnimationFrame('dotevn').config();
+require('dotevn').config();
 
 const list = document.getElementById("coinList");
 const button = document.getElementById("button");
