@@ -1,3 +1,5 @@
+requestAnimationFrame('dotevn').config();
+
 const list = document.getElementById("coinList");
 const button = document.getElementById("button");
 const API_KEY = process.env.API_KEY;
