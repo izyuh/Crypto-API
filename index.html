@@ -8,8 +8,9 @@
     <title>Crypto Exchange</title>
   </head>
   <body>
-    <h1>Conversion of coins is relative to USD</h1>
-    <button onclick="getData()" id="button">Click me!</button>
+    <input id="search" placeholder="Search" onkeyup="searchFilter()"></input>
+    <h1>Conversion of coins is relative to <span id="underline">USD</span></h1>
+    <button onclick="start()" id="button">Click me!</button>
 
     <ul id="coinList"></ul>
   </body>

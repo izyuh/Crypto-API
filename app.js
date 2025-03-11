@@ -1,8 +1,9 @@
-const apiKey = "48b680aabbcbc42dc3926f6202c5083f";
+
 const list = document.getElementById("coinList");
 const button = document.getElementById('button');
 
 async function getData() {
+  console.log("fetching");
   try {
     const request = await fetch(
       `http://api.coinlayer.com/api/live?access_key=${apiKey}`
@@ -15,8 +16,8 @@ async function getData() {
 
       //creates generics to be used for each entry
       const listItem = document.createElement("li");
-      const coinSpan = document.createElement('span');
-      const priceSpan = document.createElement('span');
+      const coinSpan = document.createElement("span");
+      const priceSpan = document.createElement("span");
 
       //creates a new span and sets content to coin name
       coinSpan.textContent = coin;
@@ -40,4 +41,20 @@ async function getData() {
   } catch (error) {
     console.log(error);
   }
+}
+
+async function start() {
+  searchBar.style.display = "block";
+
+  await getData();
+
+  setTimeout(() => {
+    start();
+  }, 6000000);
+}
+
+function searchFilter() {
+  let input = searchBar.value;
+
+  console.log(input);
 }
