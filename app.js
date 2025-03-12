@@ -1,6 +1,7 @@
 
 const list = document.getElementById("coinList");
-const button = document.getElementById('button');
+const button = document.getElementById("button");
+const searchBar = document.getElementById("search");
 
 async function getData() {
   console.log("fetching");
@@ -12,8 +13,7 @@ async function getData() {
 
     console.log(list);
 
-    Object.entries(data.rates).forEach(([coin,rate]) => {
-
+    Object.entries(data.rates).forEach(([coin, rate]) => {
       //creates generics to be used for each entry
       const listItem = document.createElement("li");
       const coinSpan = document.createElement("span");
@@ -32,11 +32,9 @@ async function getData() {
 
       //adds list item just made to list
       list.appendChild(listItem);
-      
 
       //hides 'click me' button after initial press
-      button.style.display = 'none';
-
+      button.style.display = "none";
     });
   } catch (error) {
     console.log(error);
@@ -54,7 +52,24 @@ async function start() {
 }
 
 function searchFilter() {
-  let input = searchBar.value;
+  //gets user input
+  let input = searchBar.value.toUpperCase();
 
-  console.log(input);
+  //selects all list items using id of list and then all list items
+  const listItems = document.querySelectorAll("#coinList li")
+
+  //loops through all list items
+  listItems.forEach(listItem => {
+    //selects all coinspans from list items
+    const coinSpan = listItem.querySelector("span");
+
+    //if coin span matches the user input then display it
+    if(coinSpan && coinSpan.textContent.toUpperCase().includes(input)) {
+      listItem.style.background = "red";
+    }
+    //otherwise dont
+    else {
+      listItem.style.background = "blue"
+    }
+  })
 }
