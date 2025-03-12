@@ -3,6 +3,16 @@ const list = document.getElementById("coinList");
 const button = document.getElementById("button");
 const searchBar = document.getElementById("search");
 
+async function start() {
+  searchBar.style.display = "block";
+
+  await getData();
+
+  setTimeout(() => {
+    start();
+  }, 60000000);
+}
+
 async function getData() {
   console.log("fetching");
   try {
@@ -41,35 +51,25 @@ async function getData() {
   }
 }
 
-async function start() {
-  searchBar.style.display = "block";
-
-  await getData();
-
-  setTimeout(() => {
-    start();
-  }, 6000000);
-}
-
 function searchFilter() {
   //gets user input
   let input = searchBar.value.toUpperCase();
 
   //selects all list items using id of list and then all list items
-  const listItems = document.querySelectorAll("#coinList li")
+  const listItems = document.querySelectorAll("#coinList li");
 
   //loops through all list items
-  listItems.forEach(listItem => {
+  listItems.forEach((listItem) => {
     //selects all coinspans from list items
     const coinSpan = listItem.querySelector("span");
 
     //if coin span matches the user input then display it
-    if(coinSpan && coinSpan.textContent.toUpperCase().includes(input)) {
-      listItem.style.background = "red";
+    if (coinSpan && coinSpan.textContent.toUpperCase().includes(input)) {
+      listItem.style.display = "flex";
     }
     //otherwise dont
     else {
-      listItem.style.background = "blue"
+      listItem.style.display = "none";
     }
-  })
+  });
 }
